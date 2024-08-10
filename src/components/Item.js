@@ -4,7 +4,7 @@ function Item({ name, category }) {
   const [isInCart, setIsInCart] = useState(false);
 
   function handleAddToCartClick() {
-    setIsInCart((isInCart) => !isInCart);
+    setIsInCart((prevState) => !prevState);
   }
 
   return (
@@ -14,6 +14,7 @@ function Item({ name, category }) {
       <button
         className={isInCart ? "remove" : "add"}
         onClick={handleAddToCartClick}
+        aria-label={isInCart ? "Remove from cart" : "Add to cart"}
       >
         {isInCart ? "Remove From" : "Add to"} Cart
       </button>
